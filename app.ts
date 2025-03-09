@@ -20,7 +20,7 @@ function renderPage() {
 			<nav>
 				<ul class="flex justify-center gap-4 py-4">
 					<li><a href="https://www.phadonia.com" target="_blank">Phadonia</a></li>
-					<li><a href="https://github.com/Etsi0/unduck" target="_blank">GitHub</a></li>
+					<li><a href="https://github.com/Etsi0/search" target="_blank">GitHub</a></li>
 				</ul>
 			</nav>
 		</footer>
