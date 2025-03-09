@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+	--color-body-50: hsl(var(--hue) 16% max(5%,100% * var(--isLightMode)));
+	--color-body-100: hsl(var(--hue) 16% max(10%,95% * var(--isLightMode)));
+	--color-body-200: hsl(var(--hue) 16% max(20%,85% * var(--isLightMode)));
+	--color-body-300: hsl(var(--hue) 16% max(30%,75% * var(--isLightMode)));
+	--color-body-400: hsl(var(--hue) 16% max(40%,65% * var(--isLightMode)));
+	--color-body-500: hsl(var(--hue) 16% max(50%,55% * var(--isLightMode)));
+
+	--color-input: hsl(var(--hue) 70% 96%);
+
+	--color-primary-50: hsl(var(--hue) 81.92498870311792% 88.935%);
+	--color-primary-100: hsl(var(--hue) 76.4150943396226% 83.03999999999999%);
+	--color-primary-200: hsl(var(--hue) 73.55080449636321% 77.315%);
+	--color-primary-300: hsl(var(--hue) 71.671388101983% 71.76%);
+	--color-primary-400: hsl(var(--hue) 70.26022304832715% 66.375%);
+	--color-primary-500: hsl(var(--hue) 69.10401647785788% 61.160000000000004%);
+	--color-primary-600: hsl(var(--hue) 50.9433962264151% 49.68749999999999%);
+	--color-primary-700: hsl(var(--hue) 58.730158730158735% 39.06%);
+	--color-primary-800: hsl(var(--hue) 67.3640167364017% 29.277499999999996%);
+	--color-primary-900: hsl(var(--hue) 76.99115044247789% 20.339999999999996%);
+	--color-primary-950: hsl(var(--hue) 87.79342723004696% 12.2475%);
+
+	--color-text-lightness-300:36.075%;
+	--color-text-300: hsl(var(--hue) 12% max((100% - var(--text-lightness-300)) * var(--isDarkMode),var(--text-lightness-300)));
+	--color-text-lightness-400:27.888%;
+	--color-text-400: hsl(var(--hue) 12% max((100% - var(--text-lightness-400)) * var(--isDarkMode),var(--text-lightness-400)));
+	--color-text-lightness-500:20.686999999999998%;
+	--color-text-500: hsl(var(--hue) 12% max((100% - var(--text-lightness-500)) * var(--isDarkMode),var(--text-lightness-500)));
+	--color-text-lightness-600:14.472000000000001%;
+	--color-text-600: hsl(var(--hue) 12% max((100% - var(--text-lightness-600)) * var(--isDarkMode),var(--text-lightness-600)));
+	--color-text-lightness-700:9.243%;
+	--color-text-700: hsl(var(--hue) 12% max((100% - var(--text-lightness-700)) * var(--isDarkMode),var(--text-lightness-700)));
+
+	--shadow-md-lg: 0 7px 10px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 3px 5px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+}
+
+:root {
+	color-scheme: light;
+	--isDarkMode: 0;
+	--hue: 240deg;
+	--isLightMode: calc(1 - var(--isDarkMode));
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--isDarkMode: 1;
+	}
+}
+
+::selection {
+	color: var(--color-input);
+	background: var(--color-primary-500);
+}
+
+:focus-visible {
+	outline: none;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--color-text-500);
+	font-weight: 600;
+	text-wrap: balance
+}
+
+h1 {
+	color: var(--color-text-700);
+	font-size: 3rem
+}
+
+h1,
+h2 {
+	line-height: 1.33em
+}
+
+h2 {
+	font-size: 2.521rem
+}
+
+h3 {
+	font-size: 2.089rem
+}
+
+h3,
+h4 {
+	line-height: 1.33em
+}
+
+h4 {
+	font-size: 1.707rem
+}
+
+h5 {
+	font-size: 1.385rem
+}
+
+h5,
+h6 {
+	line-height: 1.33em
+}
+
+h6 {
+	font-size: 1.136rem
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.33em;
+	max-width: 65ch;
+	text-wrap: pretty
+}
+
+a {
+	color: var(--color-primary-500);
+	text-decoration: underline;
+}
