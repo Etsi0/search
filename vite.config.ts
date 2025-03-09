@@ -9,7 +9,7 @@ export default defineConfig({
 				globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
 				runtimeCaching: [
 					{
-						urlPattern: /^https:\/\/search.phadonia.com\/bangs\.json/,
+						urlPattern: /^https:\/\/search\.phadonia\.com\/api\/bang/,
 						handler: 'CacheFirst',
 						options: {
 							cacheName: 'bang-cache',
