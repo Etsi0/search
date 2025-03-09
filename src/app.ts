@@ -2,7 +2,7 @@ function renderPage() {
 	const app = document.querySelector<HTMLDivElement>("#app")!;
 	app.innerHTML = `
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="output.css">
+		<link rel="stylesheet" href="/src/output.css">
 		<main class="grow grid place-content-center place-items-center gap-4 text-center">
 			<h1 class="!text-[clamp(0rem,_0rem_+_12vw,_3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
 			<form method="GET" action="?">
@@ -31,7 +31,7 @@ function renderPage() {
 	const urlInput = app.querySelector<HTMLInputElement>('input[type="text"]')!;
 
 	copyButton.addEventListener("click", copyToClipboard);
-	copyButton.addEventListener("keydown", async (e) => { if (e.key === 'Enter') copyToClipboard(); });
+	copyButton.addEventListener("keydown", (e) => { if (e.key === 'Enter') copyToClipboard(); });
 
 	async function copyToClipboard() {
 		await navigator.clipboard.writeText(urlInput.value);
@@ -53,7 +53,7 @@ type bang = {
 	u: string
 }
 
-let bangs = [];
+let bangs: bang[] = [];
 async function fetchBangs() {
 	const response = await fetch('/api/bang');
 
