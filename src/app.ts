@@ -63,9 +63,6 @@ async function fetchBangs() {
 
 	bangs = await response.json();
 }
-fetchBangs().then(() => {
-	doRedirect();
-});
 
 function findBang(value?: string): bang | undefined {
 	if (!value) {
@@ -110,3 +107,7 @@ function doRedirect() {
 
 	window.location.replace(searchUrl);
 }
+
+fetchBangs().then(() => {
+	doRedirect();
+});
