@@ -82,7 +82,7 @@ function getRedirectUrl() {
 	const bangCandidate = match?.[1].toLowerCase();
 
 	/* Get bang from array */
-	const selectedBang = findBang(bangCandidate) ?? findBang('qw');
+	const selectedBang = findBang(bangCandidate) ?? findBang('sp');
 
 	/* Remove bang from query */
 	const cleanQuery = (bangCandidate === selectedBang?.t ? query.replace(`!${bangCandidate}`, '') : query).trim();
