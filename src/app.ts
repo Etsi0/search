@@ -4,11 +4,11 @@ function renderPage() {
 		<main class="grow grid place-content-center place-items-center gap-4 text-center">
 			<h1 class="!text-[clamp(0rem,_0rem_+_12vw,_3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
 			<form method="GET" action="?">
-				<input class="w-full border border-primary-500 bg-body-50 px-4 py-2 rounded-full shadow-md-lg transition-shadow shadow-body-300 focus-visible:shadow-md hover:shadow-md dark:bg-body-200 dark:shadow-none dark:hover:shadow-none dark:focus-visible:shadow-none" type="search" name="q" placeholder="Search the web..." aria-label="Search" size="65" autofocus>
+				<input class="w-full border border-primary-500/62 bg-body-50 px-4 py-2 rounded-full shadow-md-lg transition-shadow shadow-body-300 focus-visible:shadow-md hover:shadow-md dark:bg-body-200 dark:shadow-none dark:hover:shadow-none dark:focus-visible:shadow-none" type="search" name="q" placeholder="Search the web..." aria-label="Search" size="65" autofocus>
 			</form>
 			<p>Fast search router that supports <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs</a> without impacting speed.</p>
 			<div class="flex gap-1">
-				<input class="w-full border border-primary-500 bg-body-50 rounded-md px-1 py-0.5 dark:bg-body-200" type="text" size="25" value="https://search.phadonia.com?q=%s" readonly />
+				<input class="w-full border border-primary-500/62 bg-body-50 rounded-md px-1 py-0.5 dark:bg-body-200" type="text" size="25" value="https://search.phadonia.com?q=%s" readonly />
 				<button class="bg-primary-500 text-input px-3 py-1 rounded-md hover:opacity-85 active:opacity-50 focus-visible:opacity-50">
 					<img class="invert" src="/clipboard.svg" alt="Copy" />
 				</button>

@@ -43,13 +43,6 @@
 	--isLightMode: calc(1 - var(--isDarkMode));
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-		--isDarkMode: 1;
-	}
-}
-
 ::selection {
 	color: var(--color-input);
 	background: var(--color-primary-500);
@@ -127,4 +120,15 @@ p {
 a {
 	color: var(--color-primary-500);
 	text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--isDarkMode: 1;
+	}
+
+	a {
+		color: var(--color-primary-400);
+	}
 }
