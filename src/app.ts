@@ -1,3 +1,13 @@
+type bang = {
+	c: string,
+	d: string,
+	r: number,
+	s: string,
+	sc: string,
+	t: string,
+	u: string
+}
+
 function renderPage() {
 	const app = document.querySelector<HTMLDivElement>("#app")!;
 	app.innerHTML = `
@@ -41,27 +51,6 @@ function renderPage() {
 	};
 }
 
-type bang = {
-	c: string,
-	d: string,
-	r: number,
-	s: string,
-	sc: string,
-	t: string,
-	u: string
-}
-
-let bangs: bang[] = [];
-async function fetchBangs() {
-	const response = await fetch('/api/bang');
-
-	if (!response.ok) {
-		throw new Error(`Failed to fetch bangs: ${response.status}`);
-	}
-
-	bangs = await response.json();
-}
-
 function findBang(value?: string): bang | undefined {
 	if (!value) {
 		return;
@@ -70,9 +59,8 @@ function findBang(value?: string): bang | undefined {
 	return bangs.find((b: bang) => b.t === value);
 }
 
-function getRedirectUrl() {
-	const url = new URL(window.location.href);
-	const query = url.searchParams.get('q')?.trim() ?? '';
+function getUrl() {
+	const query = new URL(window.location.href).searchParams.get('q')?.trim() ?? '';
 	if (!query) {
 		return;
 	}
@@ -88,24 +76,31 @@ function getRedirectUrl() {
 	const cleanQuery = (bangCandidate === selectedBang?.t ? query.replace(`!${bangCandidate}`, '') : query).trim();
 
 	/* Formats new url */
-	const searchUrl = selectedBang?.u.replace('{{{s}}}', encodeURIComponent(cleanQuery).replace(/%2F/g, '/'));
-	if (!searchUrl) {
+	const url = selectedBang?.u.replace('{{{s}}}', encodeURIComponent(cleanQuery).replace(/%2F/g, '/'));
+	if (!url) {
 		return;
 	}
 
-	return searchUrl;
+	return url;
 }
 
-function doRedirect() {
-	const searchUrl = getRedirectUrl();
-	if (!searchUrl) {
+let bangs: bang[] = [];
+async function fetchBangs() {
+	const response = await fetch('/api/bang');
+
+	if (!response.ok) {
+		throw new Error(`Failed to fetch bangs: ${response.status}`);
+	}
+
+	bangs = await response.json();
+}
+
+fetchBangs().then(() => {
+	const url = getUrl();
+	if (!url) {
 		renderPage();
 		return;
 	}
 
-	window.location.replace(searchUrl);
-}
-
-fetchBangs().then(() => {
-	doRedirect();
+	window.location.replace(url);
 });
