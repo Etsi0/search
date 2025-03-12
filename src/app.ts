@@ -9,8 +9,8 @@ type bang = {
 }
 
 function renderPage() {
-	const app = document.querySelector<HTMLDivElement>("#app")!;
-	app.innerHTML = `
+	const body = document.body;
+	body.innerHTML = `
 		<main class="grow grid place-content-center place-items-center gap-4 text-center">
 			<h1 class="!text-[clamp(0rem,_0rem_+_12vw,_3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
 			<form method="GET" action="?">
@@ -34,9 +34,9 @@ function renderPage() {
 		</footer>
 	`;
 
-	const copyButton = app.querySelector<HTMLButtonElement>("button")!;
+	const copyButton = body.querySelector<HTMLButtonElement>("button")!;
 	const copyIcon = copyButton.querySelector("img")!;
-	const urlInput = app.querySelector<HTMLInputElement>('input[type="text"]')!;
+	const urlInput = body.querySelector<HTMLInputElement>('input[type="text"]')!;
 
 	copyButton.addEventListener("click", copyToClipboard);
 	copyButton.addEventListener("keydown", (e) => { if (e.key === 'Enter') copyToClipboard(); });

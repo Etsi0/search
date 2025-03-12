@@ -1,8 +1,8 @@
 {
 	"css.format.enable": false,
 	"diffEditor.ignoreTrimWhitespace": false,
-	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
+	"editor.formatOnPaste": false,
+	"editor.formatOnSave": false,
 	"editor.formatOnSaveMode": "modifications",
 	"editor.defaultFormatter": null,
 	"editor.detectIndentation": false,
