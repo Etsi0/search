@@ -9,8 +9,17 @@ type bang = {
 }
 
 function renderPage() {
+	const head = document.querySelector<HTMLHeadElement>("head")!
 	const body = document.body;
-	body.innerHTML = `
+
+	head.innerHTML += `
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="/src/output.css">
+	`;
+	body.innerHTML += `
 		<main class="grow grid place-content-center place-items-center gap-4 text-center">
 			<h1 class="!text-[clamp(0rem,_0rem_+_12vw,_3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
 			<form method="GET" action="?">
