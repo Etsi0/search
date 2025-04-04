@@ -67,54 +67,40 @@ h5,
 h6 {
 	color: var(--color-text-500);
 	font-weight: 600;
-	text-wrap: balance
+	line-height: 1.33em;
+	text-wrap: balance;
 }
 
 h1 {
 	color: var(--color-text-700);
-	font-size: 3rem
-}
-
-h1,
-h2 {
-	line-height: 1.33em
+	font-size: 3rem;
 }
 
 h2 {
-	font-size: 2.521rem
+	font-size: 2.521rem;
 }
 
 h3 {
-	font-size: 2.089rem
-}
-
-h3,
-h4 {
-	line-height: 1.33em
+	font-size: 2.089rem;
 }
 
 h4 {
-	font-size: 1.707rem
+	font-size: 1.707rem;
 }
 
 h5 {
-	font-size: 1.385rem
-}
-
-h5,
-h6 {
-	line-height: 1.33em
+	font-size: 1.385rem;
 }
 
 h6 {
-	font-size: 1.136rem
+	font-size: 1.136rem;
 }
 
 p {
 	font-size: 1rem;
 	line-height: 1.33em;
 	max-width: 65ch;
-	text-wrap: pretty
+	text-wrap: pretty;
 }
 
 a {
