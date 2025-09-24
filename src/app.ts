@@ -79,7 +79,7 @@ function getUrl() {
 	const bangCandidate = match?.[1].toLowerCase();
 
 	/* Get bang from array */
-	const selectedBang = findBang(bangCandidate) ?? findBang('sp');
+	const selectedBang = findBang(bangCandidate) ?? findBang(localStorage.getItem("defaultBang") ?? 'sp');
 
 	/* Remove bang from query */
 	const cleanQuery = (bangCandidate === selectedBang?.t ? query.replace(`!${bangCandidate}`, '') : query).trim();
