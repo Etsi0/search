@@ -56,6 +56,15 @@ function findBang(value?: string): bang | undefined {
 		return;
 	}
 
+	bangs.unshift({
+		c: '',
+		d: '',
+		r: 0,
+		s: '',
+		sc: '',
+		t: 'kagi',
+		u: 'https://kagi.com/search?q={{{s}}}'
+	})
 	return bangs.find((b: bang) => b.t === value);
 }
 
