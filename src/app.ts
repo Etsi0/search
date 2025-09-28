@@ -154,7 +154,6 @@ async function fetchBangs() {
 if (query) {
 	fetchBangs()
 		.then(() => {
-			console.log(bangs);
 			const url = getUrl();
 			if (!url) {
 				renderPage();
