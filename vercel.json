@@ -1,0 +1,7 @@
+{
+	"functions": {
+		"api/bang.cjs": {
+			"runtime": "@vercel/node@5.3.24"
+		}
+	}
+}

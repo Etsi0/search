@@ -45,7 +45,7 @@ export default defineConfig({
 				runtimeCaching: [
 					{
 						urlPattern: /^https:\/\/search\.phadonia\.com\/api\/bang/,
-						handler: 'CacheFirst',
+						handler: 'StaleWhileRevalidate',
 						options: {
 							cacheName: 'bang-cache',
 							expiration: {
@@ -57,24 +57,4 @@ export default defineConfig({
 			},
 		}),
 	],
-	server: {
-		proxy: {
-			'/api/bang': {
-				target: 'https://duckduckgo.com',
-				changeOrigin: true,
-				rewrite: (path) => path.replace(/^\/api\/bang/, '/bang.js'),
-				configure: (proxy, _options) => {
-					proxy.on('error', (err, _req, _res) => {
-						console.log('proxy error', err);
-					});
-					proxy.on('proxyReq', (proxyReq, req, _res) => {
-						console.log('Sending Request:', req.method, req.url);
-					});
-					proxy.on('proxyRes', (proxyRes, req, _res) => {
-						console.log('Received Response from:', req.url, proxyRes.statusCode);
-					});
-				},
-			},
-		},
-	},
 });

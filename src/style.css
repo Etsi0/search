@@ -1,120 +1,219 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-	--color-body-50: hsl(var(--hue) 16% max(5%,100% * var(--isLightMode)));
-	--color-body-100: hsl(var(--hue) 16% max(10%,95% * var(--isLightMode)));
-	--color-body-200: hsl(var(--hue) 16% max(20%,85% * var(--isLightMode)));
-	--color-body-300: hsl(var(--hue) 16% max(30%,75% * var(--isLightMode)));
-	--color-body-400: hsl(var(--hue) 16% max(40%,65% * var(--isLightMode)));
-	--color-body-500: hsl(var(--hue) 16% max(50%,55% * var(--isLightMode)));
+	--color-body-50: oklch(var(--body-color-50));
+	--color-body-100: oklch(var(--body-color-100));
+	--color-body-200: oklch(var(--body-color-200));
+	--color-body-300: oklch(var(--body-color-300));
+	--color-body-400: oklch(var(--body-color-400));
+	--color-body-500: oklch(var(--body-color-500));
 
-	--color-input: hsl(var(--hue) 70% 96%);
+	--color-primary-50: oklch(var(--primary-color-50));
+	--color-primary-100: oklch(var(--primary-color-100));
+	--color-primary-200: oklch(var(--primary-color-200));
+	--color-primary-300: oklch(var(--primary-color-300));
+	--color-primary-400: oklch(var(--primary-color-400));
+	--color-primary-500: oklch(var(--primary-color-500));
+	--color-primary-600: oklch(var(--primary-color-600));
+	--color-primary-700: oklch(var(--primary-color-700));
+	--color-primary-800: oklch(var(--primary-color-800));
+	--color-primary-900: oklch(var(--primary-color-900));
+	--color-primary-950: oklch(var(--primary-color-950));
 
-	--color-primary-50: hsl(var(--hue) 81.92498870311792% 88.935%);
-	--color-primary-100: hsl(var(--hue) 76.4150943396226% 83.03999999999999%);
-	--color-primary-200: hsl(var(--hue) 73.55080449636321% 77.315%);
-	--color-primary-300: hsl(var(--hue) 71.671388101983% 71.76%);
-	--color-primary-400: hsl(var(--hue) 70.26022304832715% 66.375%);
-	--color-primary-500: hsl(var(--hue) 69.10401647785788% 61.160000000000004%);
-	--color-primary-600: hsl(var(--hue) 50.9433962264151% 49.68749999999999%);
-	--color-primary-700: hsl(var(--hue) 58.730158730158735% 39.06%);
-	--color-primary-800: hsl(var(--hue) 67.3640167364017% 29.277499999999996%);
-	--color-primary-900: hsl(var(--hue) 76.99115044247789% 20.339999999999996%);
-	--color-primary-950: hsl(var(--hue) 87.79342723004696% 12.2475%);
+	--color-input: oklch(var(--input-color));
 
-	--color-text-lightness-300:36.075%;
-	--color-text-300: hsl(var(--hue) 12% max((100% - var(--text-lightness-300)) * var(--isDarkMode),var(--text-lightness-300)));
-	--color-text-lightness-400:27.888%;
-	--color-text-400: hsl(var(--hue) 12% max((100% - var(--text-lightness-400)) * var(--isDarkMode),var(--text-lightness-400)));
-	--color-text-lightness-500:20.686999999999998%;
-	--color-text-500: hsl(var(--hue) 12% max((100% - var(--text-lightness-500)) * var(--isDarkMode),var(--text-lightness-500)));
-	--color-text-lightness-600:14.472000000000001%;
-	--color-text-600: hsl(var(--hue) 12% max((100% - var(--text-lightness-600)) * var(--isDarkMode),var(--text-lightness-600)));
-	--color-text-lightness-700:9.243%;
-	--color-text-700: hsl(var(--hue) 12% max((100% - var(--text-lightness-700)) * var(--isDarkMode),var(--text-lightness-700)));
+	--color-text-100: oklch(var(--text-color-100));
+	--color-text-200: oklch(var(--text-color-200));
+	--color-text-300: oklch(var(--text-color-300));
+	--color-text-400: oklch(var(--text-color-400));
+	--color-text-500: oklch(var(--text-color-500));
+	--color-text-600: oklch(var(--text-color-600));
+	--color-text-700: oklch(var(--text-color-700));
+	--color-text-800: oklch(var(--text-color-800));
+	--color-text-900: oklch(var(--text-color-900));
 
-	--shadow-md-lg: 0 7px 10px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 3px 5px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+	--text-custom-md: var(--font-size-1);
+	--text-custom-lg: var(--font-size-2);
+	--text-custom-xl: var(--font-size-3);
+	--text-custom-2xl: var(--font-size-4);
+	--text-custom-3xl: var(--font-size-5);
+	--text-custom-4xl: var(--font-size-6);
+	--text-custom-5xl: var(--font-size-7);
 }
 
-:root {
-	color-scheme: light;
-	--isDarkMode: 0;
-	--hue: 240deg;
-	--isLightMode: calc(1 - var(--isDarkMode));
-}
-
-::selection {
-	color: var(--color-input);
-	background: var(--color-primary-500);
-}
-
-:focus-visible {
-	outline: none;
-}
-
-body {
-	font-family: "Inter", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: normal;
-	font-style: normal;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: var(--color-text-500);
-	font-weight: 600;
-	line-height: 1.33em;
-	text-wrap: balance;
-}
-
-h1 {
-	color: var(--color-text-700);
-	font-size: 3rem;
-}
-
-h2 {
-	font-size: 2.521rem;
-}
-
-h3 {
-	font-size: 2.089rem;
-}
-
-h4 {
-	font-size: 1.707rem;
-}
-
-h5 {
-	font-size: 1.385rem;
-}
-
-h6 {
-	font-size: 1.136rem;
-}
-
-p {
-	font-size: 1rem;
-	line-height: 1.33em;
-	max-width: 65ch;
-	text-wrap: pretty;
-}
-
-a {
-	color: var(--color-primary-500);
-	text-decoration: underline;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
 	:root {
-		color-scheme: dark;
-		--isDarkMode: 1;
+		--isDarkMode: 0;
+		--hue-color: 277deg;
+		--neutral-chroma: 0.01;
+		color-scheme: light;
+		interpolate-size: allow-keywords;
+
+		/*==================================================
+			Font
+			startValue + (endValue - startValue) * (((index - 1) / (totalNumber - 1)) ^ 1.5)
+		==================================================*/
+		--font-size-1: 1rem;
+		--font-size-2: 1.1360827635rem;
+		--font-size-3: 1.3849001795rem;
+		--font-size-4: 1.7071067812rem;
+		--font-size-5: 2.0886621079rem;
+		--font-size-6: 2.5214515486rem;
+		--font-size-7: 3rem;
+
+		/*==================================================
+			Body colors
+		==================================================*/
+		--body-light: 0.97;
+		--body-dark: 0.2;
+		--body-step: calc(0.05 * (-1 + 2 * var(--isDarkMode)));
+		--body-base: calc(var(--body-light) - (var(--body-light) - var(--body-dark)) * var(--isDarkMode));
+
+		--body-lightness-50: calc(var(--body-base) + (var(--body-step) * 0));
+		--body-color-50 : var(--body-lightness-50) var(--neutral-chroma) var(--hue-color);
+
+		--body-lightness-100: calc(var(--body-base) + (var(--body-step) * 1));
+		--body-color-100: var(--body-lightness-100) var(--neutral-chroma) var(--hue-color);
+
+		--body-lightness-200: calc(var(--body-base) + (var(--body-step) * 2));
+		--body-color-200: var(--body-lightness-200) var(--neutral-chroma) var(--hue-color);
+
+		--body-lightness-300: calc(var(--body-base) + (var(--body-step) * 3));
+		--body-color-300: var(--body-lightness-300) var(--neutral-chroma) var(--hue-color);
+
+		--body-lightness-400: calc(var(--body-base) + (var(--body-step) * 4));
+		--body-color-400: var(--body-lightness-400) var(--neutral-chroma) var(--hue-color);
+
+		--body-lightness-500: calc(var(--body-base) + (var(--body-step) * 5));
+		--body-color-500: var(--body-lightness-500) var(--neutral-chroma) var(--hue-color);
+
+		/*==================================================
+			Primary colors
+			option 1: (primaryChroma / primaryLightness) * min(currentLightness, 1 - currentLightness)
+			option 2: (primaryChroma / primaryLightness) * (primaryLightness - abs(currentLightness - primaryLightness)) <- simpler to use in a calculator since you only need to change one variable per iteration
+		==================================================*/
+		--primary-color-50: 0.95 0.02 var(--hue-color);
+		--primary-color-100: 0.90 0.04 var(--hue-color);
+		--primary-color-200: 0.80 0.08 var(--hue-color);
+		--primary-color-300: 0.70 0.12 var(--hue-color);
+		--primary-color-400: 0.60 0.16 var(--hue-color);
+		--primary-color-500: 0.50 0.2 var(--hue-color);
+		--primary-color-600: 0.40 0.16 var(--hue-color);
+		--primary-color-700: 0.30 0.12 var(--hue-color);
+		--primary-color-800: 0.20 0.08 var(--hue-color);
+		--primary-color-900: 0.10 0.04 var(--hue-color);
+		--primary-color-950: 0.05 0.02 var(--hue-color);
+
+		/*==================================================
+			Text colors
+		==================================================*/
+		--text-color-100: abs(0.90 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-200: abs(0.80 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-300: abs(0.70 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-400: abs(0.60 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-500: abs(0.50 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-600: abs(0.40 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-700: abs(0.30 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-800: abs(0.20 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-color-900: abs(0.10 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
 	}
 
-	a {
-		color: var(--color-primary-400);
+	/*==================================================
+		Dark mode switch
+	==================================================*/
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--isDarkMode: 1;
+			color-scheme: dark;
+		}
 	}
+
+	*,
+	::before,
+	::after {
+		border-color: var(--color-body-100);
+	}
+
+	*:focus-visible {
+		outline: solid 2px var(--color-primary-500);
+		outline-offset: 2px;
+	}
+
+	::selection {
+		color: var(--color-primary-100);
+		background: var(--color-primary-500);
+	}
+
+	body,
+	dialog > * {
+		color: var(--color-text-700);
+		font-family: "Inter", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: normal;
+		font-style: normal;
+		font-size: var(--font-size-1);
+		font-weight: 400;
+		line-height: 1.33;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--color-text-800);
+		font-weight: 600;
+		text-wrap: balance;
+	}
+
+	h1 {
+		color: var(--color-text-900);
+		font-size: var(--font-size-7);
+	}
+
+	h2 {
+		font-size: var(--font-size-6);
+	}
+
+	h3 {
+		font-size: var(--font-size-5);
+	}
+
+	h4 {
+		font-size: var(--font-size-4);
+	}
+
+	h5 {
+		font-size: var(--font-size-3);
+	}
+
+	h6 {
+		font-size: var(--font-size-2);
+	}
+
+	p {
+		max-width: 65ch;
+		text-wrap: pretty;
+	}
+
+	.align-center {
+		vertical-align: middle;
+		margin-block-start: calc(1ex - 1cap);
+	}
+
+	header > nav {
+		translate: 100%;
+	}
+
+	header:has(input:checked) {
+		& svg {
+			rotate: 360deg;
+		}
+
+		& > nav {
+			translate: 0;
+		}
+	}
+
 }
