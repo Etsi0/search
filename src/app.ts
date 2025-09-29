@@ -14,12 +14,15 @@ const params = new URL(window.location.href).searchParams;
 const query = params.get('q')?.trim() ?? '';
 let bangs: bang[] = [];
 
-function renderPage() {
+/*==================================================
+	WebUI
+==================================================*/
+function renderPage(): void {
 	const head = document.head;
 	const body = document.body;
 
 	/*==================================================
-		Load in CSS and fonts only when rendering the page
+		Load in font
 	==================================================*/
 	const gfPreconnect1 = document.createElement('link');
 	gfPreconnect1.rel = 'preconnect';
@@ -41,7 +44,7 @@ function renderPage() {
 	head.appendChild(gfStylesheet);
 
 	/*==================================================
-		Render the page
+		Load in DOM
 	==================================================*/
 	body.innerHTML = `
 		<header>
@@ -88,6 +91,9 @@ function renderPage() {
 		</footer>
 	`;
 
+	/*==================================================
+		EventListeners
+	==================================================*/
 	const copyButton = body.querySelector<HTMLButtonElement>("button")!;
 	const copyIcon = copyButton.querySelector("img")!;
 	const urlInput = body.querySelector<HTMLInputElement>('input[name="clipboard"]')!;
@@ -97,7 +103,7 @@ function renderPage() {
 	copyButton.addEventListener("keydown", (e) => { if (e.key === 'Enter') copyToClipboard(); });
 	defaultBangInput.addEventListener("keydown", () => defaultBangFunction());
 
-	async function copyToClipboard() {
+	async function copyToClipboard(): Promise<void> {
 		await navigator.clipboard.writeText(urlInput.value);
 		copyIcon.src = "/clipboard-check.svg";
 
@@ -106,13 +112,16 @@ function renderPage() {
 		}, 2000);
 	}
 
-	async function defaultBangFunction() {
+	async function defaultBangFunction(): Promise<void> {
 		setTimeout(() => {
 			localStorage.setItem('defaultBang', defaultBangInput.value);
 		}, 10);
 	}
 }
 
+/*==================================================
+	Search
+==================================================*/
 function findBang(value?: string): bang | undefined {
 	if (!value) {
 		return;
@@ -121,18 +130,27 @@ function findBang(value?: string): bang | undefined {
 	return bangs.find((b: bang) => b.t === value);
 }
 
-function getUrl() {
-	/* Get bang from query */
-	const match = query.match(/!(\S+)/i);
-	const bangCandidate = match?.[1].toLowerCase();
+function findFirstBang(): bang | undefined {
+	const match = query.match(/!(\S+)/g);
+	if (!match) {
+		return;
+	}
 
-	/* Get bang from array */
-	const selectedBang = findBang(bangCandidate) ?? findBang(storedBang ?? defaultBang);
+	for (const b of match) {
+		const candidate = findBang(b.slice(1));
+		if (candidate) {
+			return candidate;
+		}
+	}
 
-	/* Remove bang from query */
-	const cleanQuery = (bangCandidate === selectedBang?.t ? query.replace(`!${bangCandidate}`, '') : query).trim();
+	return;
+}
 
-	/* Formats new url */
+function getUrl(): string | undefined {
+	const bangCandidate = findFirstBang();
+	const selectedBang = bangCandidate ?? findBang(storedBang ?? defaultBang);
+
+	const cleanQuery = (bangCandidate?.t === selectedBang?.t ? query.replace(`!${bangCandidate?.t}`, '') : query).trim();
 	const url = selectedBang?.u.replace('{{{s}}}', encodeURIComponent(cleanQuery).replace(/%2F/g, '/'));
 	if (!url) {
 		return;
@@ -141,7 +159,10 @@ function getUrl() {
 	return url;
 }
 
-async function fetchBangs() {
+/*==================================================
+	Get bangs from API
+==================================================*/
+async function fetchBangs(): Promise<void> {
 	const response = await fetch('/api/bang');
 
 	if (!response.ok) {
@@ -151,22 +172,25 @@ async function fetchBangs() {
 	bangs = await response.json();
 }
 
-if (query) {
-	fetchBangs()
-		.then(() => {
+/*==================================================
+	INIT
+==================================================*/
+(async () => {
+	if (query) {
+		try {
+			await fetchBangs();
 			const url = getUrl();
-			if (!url) {
-				renderPage();
+			if (url) {
+				window.location.replace(url);
 				return;
 			}
-			window.location.replace(url);
-		})
-		.catch(() => renderPage());
-} else {
-    renderPage();
+		} catch {}
+	}
+
+	renderPage();
 	window.addEventListener('load', () => {
-        window.requestIdleCallback(() => {
+		window.requestIdleCallback(() => {
 			fetchBangs().catch(() => {});
 		});
-    }, { once: true });
-}
+	}, { once: true });
+})();
