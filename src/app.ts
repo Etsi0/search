@@ -54,7 +54,7 @@ function renderPage() {
 				</label>
 			</div>
 			<hr />
-			<nav class="fixed h-[calc(100vh_-_3.5rem)] right-0 p-4 border-l border-body-100 transition-transform duration-225">
+			<nav class="fixed bg-body-50/90 backdrop-blur-xl h-[calc(100vh_-_3.5rem)] right-0 p-4 border-l border-body-100 transition-transform duration-225">
 				<ul>
 					<li>
 						<label class="flex items-center gap-4">
