@@ -202,18 +202,17 @@
 		margin-block-start: calc(1ex - 1cap);
 	}
 
-	header > nav {
+	header > aside {
 		translate: 100%;
 	}
 
-	header:has(input:checked) {
+	header:not(:has(aside[inert])) {
 		& svg {
 			rotate: 360deg;
 		}
 
-		& > nav {
+		& > aside {
 			translate: 0;
 		}
 	}
-
 }
