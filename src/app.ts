@@ -160,7 +160,7 @@ function getUrl(): string | undefined {
 	const bangCandidate = findFirstBang();
 	const selectedBang = bangCandidate ?? findBang(storedBang ?? defaultBang);
 
-	const cleanQuery = (bangCandidate?.t === selectedBang?.t ? query.replace(`!${bangCandidate?.t}`, '') : query).trim();
+	const cleanQuery = (bangCandidate?.t === selectedBang?.t ? query.replace(new RegExp(`!${bangCandidate?.t}`, 'i'), '') : query).trim();
 	const url = selectedBang?.u.replace('{{{s}}}', encodeURIComponent(cleanQuery).replace(/%2F/g, '/'));
 	if (!url) {
 		return;
