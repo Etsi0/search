@@ -137,7 +137,7 @@ function findBang(value?: string): bang | undefined {
 		return;
 	}
 
-	return bangs.find((b: bang) => b.t === value);
+	return bangs.find((b: bang) => b.t.toLowerCase() === value.toLowerCase());
 }
 
 function findFirstBang(): bang | undefined {
