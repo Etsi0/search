@@ -17,6 +17,15 @@ module.exports = async (req, res) => {
 		r: 0,
 		s: '',
 		sc: '',
+		t: 'g',
+		u: 'https://www.google.com/search?udm=14&q={{{s}}}'
+	});
+	data.unshift({
+		c: '',
+		d: '',
+		r: 0,
+		s: '',
+		sc: '',
 		t: 'kagi',
 		u: 'https://kagi.com/search?q={{{s}}}'
 	});
