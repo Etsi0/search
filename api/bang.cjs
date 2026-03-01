@@ -28,6 +28,7 @@ module.exports = async (req, res) => {
 		u: 'https://kagi.com/search?q={{{s}}}'
 	});
 
-	res.setHeader('Cache-Control', `s-maxage=${CACHE_MAX_AGE}, stale-while-revalidate`);
+	res.setHeader('Cache-Control', 'public, max-age=0');
+	res.setHeader('CDN-Cache-Control', `public, s-maxage=${CACHE_MAX_AGE}`);
 	res.status(200).json(data);
 };
