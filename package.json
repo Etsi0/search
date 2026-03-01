@@ -10,6 +10,9 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview"
 	},
+	"dependencies": {
+		"@vercel/functions": "^3.4.3"
+	},
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.1.18",
 		"@vercel/node": "^5.5.23",
