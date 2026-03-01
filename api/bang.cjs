@@ -1,9 +1,7 @@
+const CACHE_MAX_AGE = 7 * 24 * 60 * 60; // 1 week in seconds
+
 module.exports = async (req, res) => {
-	const response = await fetch('https://duckduckgo.com/bang.js', {
-		next: {
-			revalidate: 7 * 24 * 60 * 60, // 1 week
-		},
-	});
+	const response = await fetch('https://duckduckgo.com/bang.js');
 
 	if (!response.ok) {
 		res.status(response.status).json({ error: 'Failed to fetch bangs' });
@@ -30,5 +28,6 @@ module.exports = async (req, res) => {
 		u: 'https://kagi.com/search?q={{{s}}}'
 	});
 
+	res.setHeader('Cache-Control', `s-maxage=${CACHE_MAX_AGE}, stale-while-revalidate`);
 	res.status(200).json(data);
 };
