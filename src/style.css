@@ -1,121 +1,120 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-body-50: oklch(var(--body-color-50));
-	--color-body-100: oklch(var(--body-color-100));
-	--color-body-200: oklch(var(--body-color-200));
-	--color-body-300: oklch(var(--body-color-300));
-	--color-body-400: oklch(var(--body-color-400));
-	--color-body-500: oklch(var(--body-color-500));
+	--color-body-50: oklch(var(--body-lightness-50) var(--neutral-chroma) var(--hue-color));
+	--color-body-100: oklch(var(--body-lightness-100) var(--neutral-chroma) var(--hue-color));
+	--color-body-200: oklch(var(--body-lightness-200) var(--neutral-chroma) var(--hue-color));
+	--color-body-300: oklch(var(--body-lightness-300) var(--neutral-chroma) var(--hue-color));
+	--color-body-400: oklch(var(--body-lightness-400) var(--neutral-chroma) var(--hue-color));
+	--color-body-500: oklch(var(--body-lightness-500) var(--neutral-chroma) var(--hue-color));
 
-	--color-primary-50: oklch(var(--primary-color-50));
-	--color-primary-100: oklch(var(--primary-color-100));
-	--color-primary-200: oklch(var(--primary-color-200));
-	--color-primary-300: oklch(var(--primary-color-300));
-	--color-primary-400: oklch(var(--primary-color-400));
-	--color-primary-500: oklch(var(--primary-color-500));
-	--color-primary-600: oklch(var(--primary-color-600));
-	--color-primary-700: oklch(var(--primary-color-700));
-	--color-primary-800: oklch(var(--primary-color-800));
-	--color-primary-900: oklch(var(--primary-color-900));
-	--color-primary-950: oklch(var(--primary-color-950));
+	--color-primary-50: oklch(var(--primary-lightness-50)  var(--primary-chroma-50)  var(--hue-color));
+	--color-primary-100: oklch(var(--primary-lightness-100) var(--primary-chroma-100) var(--hue-color));
+	--color-primary-200: oklch(var(--primary-lightness-200) var(--primary-chroma-200) var(--hue-color));
+	--color-primary-300: oklch(var(--primary-lightness-300) var(--primary-chroma-300) var(--hue-color));
+	--color-primary-400: oklch(var(--primary-lightness-400) var(--primary-chroma-400) var(--hue-color));
+	--color-primary-500: oklch(var(--primary-lightness-500) var(--primary-chroma-500) var(--hue-color));
+	--color-primary-600: oklch(var(--primary-lightness-600) var(--primary-chroma-600) var(--hue-color));
+	--color-primary-700: oklch(var(--primary-lightness-700) var(--primary-chroma-700) var(--hue-color));
+	--color-primary-800: oklch(var(--primary-lightness-800) var(--primary-chroma-800) var(--hue-color));
+	--color-primary-900: oklch(var(--primary-lightness-900) var(--primary-chroma-900) var(--hue-color));
+	--color-primary-950: oklch(var(--primary-lightness-950) var(--primary-chroma-950) var(--hue-color));
 
-	--color-input: oklch(var(--input-color));
+	--color-text-100: oklch(var(--text-lightness-100) var(--neutral-chroma) var(--hue-color));
+	--color-text-200: oklch(var(--text-lightness-200) var(--neutral-chroma) var(--hue-color));
+	--color-text-300: oklch(var(--text-lightness-300) var(--neutral-chroma) var(--hue-color));
+	--color-text-400: oklch(var(--text-lightness-400) var(--neutral-chroma) var(--hue-color));
+	--color-text-500: oklch(var(--text-lightness-500) var(--neutral-chroma) var(--hue-color));
+	--color-text-600: oklch(var(--text-lightness-600) var(--neutral-chroma) var(--hue-color));
+	--color-text-700: oklch(var(--text-lightness-700) var(--neutral-chroma) var(--hue-color));
+	--color-text-800: oklch(var(--text-lightness-800) var(--neutral-chroma) var(--hue-color));
+	--color-text-900: oklch(var(--text-lightness-900) var(--neutral-chroma) var(--hue-color));
 
-	--color-text-100: oklch(var(--text-color-100));
-	--color-text-200: oklch(var(--text-color-200));
-	--color-text-300: oklch(var(--text-color-300));
-	--color-text-400: oklch(var(--text-color-400));
-	--color-text-500: oklch(var(--text-color-500));
-	--color-text-600: oklch(var(--text-color-600));
-	--color-text-700: oklch(var(--text-color-700));
-	--color-text-800: oklch(var(--text-color-800));
-	--color-text-900: oklch(var(--text-color-900));
-
-	--text-custom-md: var(--font-size-1);
-	--text-custom-lg: var(--font-size-2);
-	--text-custom-xl: var(--font-size-3);
-	--text-custom-2xl: var(--font-size-4);
-	--text-custom-3xl: var(--font-size-5);
-	--text-custom-4xl: var(--font-size-6);
-	--text-custom-5xl: var(--font-size-7);
+	/*==================================================
+		Font
+		startValue * (endValue ** (index / (totalNumber -1)))
+	==================================================*/
+	--text-custom-md:  calc(1rem * pow(3, (0 / 6))); /* 1.0000000000rem */
+	--text-custom-lg:  calc(1rem * pow(3, (1 / 6))); /* 1.2009369552rem */
+	--text-custom-xl:  calc(1rem * pow(3, (2 / 6))); /* 1.4422495703rem */
+	--text-custom-2xl: calc(1rem * pow(3, (3 / 6))); /* 1.7320508076rem */
+	--text-custom-3xl: calc(1rem * pow(3, (4 / 6))); /* 2.0800838231rem */
+	--text-custom-4xl: calc(1rem * pow(3, (5 / 6))); /* 2.4966612026rem */
+	--text-custom-5xl: calc(1rem * pow(3, (6 / 6))); /* 3.0000000000rem */
 }
 
 @layer base {
 	:root {
-		--isDarkMode: 0;
-		--hue-color: 277deg;
-		--neutral-chroma: 0.01;
 		color-scheme: light;
 		interpolate-size: allow-keywords;
 
 		/*==================================================
-			Font
-			startValue + (endValue - startValue) * (((index - 1) / (totalNumber - 1)) ^ 1.5)
+			Global styling variables
 		==================================================*/
-		--font-size-1: 1rem;
-		--font-size-2: 1.1360827635rem;
-		--font-size-3: 1.3849001795rem;
-		--font-size-4: 1.7071067812rem;
-		--font-size-5: 2.0886621079rem;
-		--font-size-6: 2.5214515486rem;
-		--font-size-7: 3rem;
+		--isDarkMode:     0.00;
+		--lightness-max:  0.97;
+		--lightness-min:  0.20;
+		--lightness-diff: calc(var(--lightness-max) - var(--lightness-min));
+		--neutral-chroma: 0.01;
+		--hue-color:      277;
 
 		/*==================================================
-			Body colors
+			Body variables
 		==================================================*/
-		--body-light: 0.97;
-		--body-dark: 0.2;
 		--body-step: calc(0.05 * (-1 + 2 * var(--isDarkMode)));
-		--body-base: calc(var(--body-light) - (var(--body-light) - var(--body-dark)) * var(--isDarkMode));
+		--body-base: calc(var(--lightness-diff) * (1 - var(--isDarkMode)) + var(--lightness-min));
 
 		--body-lightness-50: calc(var(--body-base) + (var(--body-step) * 0));
-		--body-color-50 : var(--body-lightness-50) var(--neutral-chroma) var(--hue-color);
-
 		--body-lightness-100: calc(var(--body-base) + (var(--body-step) * 1));
-		--body-color-100: var(--body-lightness-100) var(--neutral-chroma) var(--hue-color);
-
 		--body-lightness-200: calc(var(--body-base) + (var(--body-step) * 2));
-		--body-color-200: var(--body-lightness-200) var(--neutral-chroma) var(--hue-color);
-
 		--body-lightness-300: calc(var(--body-base) + (var(--body-step) * 3));
-		--body-color-300: var(--body-lightness-300) var(--neutral-chroma) var(--hue-color);
-
 		--body-lightness-400: calc(var(--body-base) + (var(--body-step) * 4));
-		--body-color-400: var(--body-lightness-400) var(--neutral-chroma) var(--hue-color);
-
 		--body-lightness-500: calc(var(--body-base) + (var(--body-step) * 5));
-		--body-color-500: var(--body-lightness-500) var(--neutral-chroma) var(--hue-color);
 
 		/*==================================================
-			Primary colors
-			option 1: (primaryChroma / primaryLightness) * min(currentLightness, 1 - currentLightness)
-			option 2: (primaryChroma / primaryLightness) * (primaryLightness - abs(currentLightness - primaryLightness)) <- simpler to use in a calculator since you only need to change one variable per iteration
+			Primary variables
+			- calculate lightness: (lightestLightness - darkestLightness) * (i / (totalAmountOfColors - 1)) + darkestLightness
+			- calculate chroma: (primaryChroma / primaryLightness) * (primaryLightness - abs(currentLightness - primaryLightness))
 		==================================================*/
-		--primary-color-50: 0.95 0.02 var(--hue-color);
-		--primary-color-100: 0.90 0.04 var(--hue-color);
-		--primary-color-200: 0.80 0.08 var(--hue-color);
-		--primary-color-300: 0.70 0.12 var(--hue-color);
-		--primary-color-400: 0.60 0.16 var(--hue-color);
-		--primary-color-500: 0.50 0.2 var(--hue-color);
-		--primary-color-600: 0.40 0.16 var(--hue-color);
-		--primary-color-700: 0.30 0.12 var(--hue-color);
-		--primary-color-800: 0.20 0.08 var(--hue-color);
-		--primary-color-900: 0.10 0.04 var(--hue-color);
-		--primary-color-950: 0.05 0.02 var(--hue-color);
+		--primary-lightness-50:  calc(var(--lightness-diff) * (10 / 10) + var(--lightness-min));
+		--primary-lightness-100: calc(var(--lightness-diff) * (09 / 10) + var(--lightness-min));
+		--primary-lightness-200: calc(var(--lightness-diff) * (08 / 10) + var(--lightness-min));
+		--primary-lightness-300: calc(var(--lightness-diff) * (07 / 10) + var(--lightness-min));
+		--primary-lightness-400: calc(var(--lightness-diff) * (06 / 10) + var(--lightness-min));
+		--primary-lightness-500: calc(var(--lightness-diff) * (05 / 10) + var(--lightness-min));
+		--primary-lightness-600: calc(var(--lightness-diff) * (04 / 10) + var(--lightness-min));
+		--primary-lightness-700: calc(var(--lightness-diff) * (03 / 10) + var(--lightness-min));
+		--primary-lightness-800: calc(var(--lightness-diff) * (02 / 10) + var(--lightness-min));
+		--primary-lightness-900: calc(var(--lightness-diff) * (01 / 10) + var(--lightness-min));
+		--primary-lightness-950: calc(var(--lightness-diff) * (00 / 10) + var(--lightness-min));
+
+		--primary-chroma-factor: calc(0.2 / var(--primary-lightness-500));
+		--primary-chroma-50:  calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-50)  - var(--primary-lightness-500))));
+		--primary-chroma-100: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-100) - var(--primary-lightness-500))));
+		--primary-chroma-200: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-200) - var(--primary-lightness-500))));
+		--primary-chroma-300: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-300) - var(--primary-lightness-500))));
+		--primary-chroma-400: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-400) - var(--primary-lightness-500))));
+		--primary-chroma-500: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-500) - var(--primary-lightness-500))));
+		--primary-chroma-600: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-600) - var(--primary-lightness-500))));
+		--primary-chroma-700: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-700) - var(--primary-lightness-500))));
+		--primary-chroma-800: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-800) - var(--primary-lightness-500))));
+		--primary-chroma-900: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-900) - var(--primary-lightness-500))));
+		--primary-chroma-950: calc(var(--primary-chroma-factor) * (var(--primary-lightness-500) - abs(var(--primary-lightness-950) - var(--primary-lightness-500))));
 
 		/*==================================================
-			Text colors
+			Text variables
 		==================================================*/
-		--text-color-100: abs(0.90 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-200: abs(0.80 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-300: abs(0.70 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-400: abs(0.60 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-500: abs(0.50 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-600: abs(0.40 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-700: abs(0.30 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-800: abs(0.20 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
-		--text-color-900: abs(0.10 - 1 * var(--isDarkMode)) var(--neutral-chroma) var(--hue-color);
+		--text-lightness-max: calc(var(--lightness-max) + var(--lightness-min));
+
+		--text-lightness-100: abs(var(--lightness-diff) * (8 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-200: abs(var(--lightness-diff) * (7 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-300: abs(var(--lightness-diff) * (6 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-400: abs(var(--lightness-diff) * (5 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-500: abs(var(--lightness-diff) * (4 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-600: abs(var(--lightness-diff) * (3 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-700: abs(var(--lightness-diff) * (2 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-800: abs(var(--lightness-diff) * (1 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
+		--text-lightness-900: abs(var(--lightness-diff) * (0 / 8) + var(--lightness-min) - var(--text-lightness-max) * var(--isDarkMode));
 	}
 
 	/*==================================================
@@ -131,16 +130,21 @@
 	*,
 	::before,
 	::after {
-		border-color: var(--color-body-100);
+		border-color: var(--color-body-200);
+		outline: solid 2px transparent;
+		outline-offset: 2pt;
+		transition-property: none;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-duration: 150ms;
 	}
 
 	*:focus-visible {
 		outline: solid 2px var(--color-primary-500);
-		outline-offset: 2px;
 	}
 
-	::selection {
-		color: var(--color-primary-100);
+	::selection,
+	::target-text {
+		color: var(--color-primary-50);
 		background: var(--color-primary-500);
 	}
 
@@ -162,13 +166,13 @@
 	h4,
 	h5,
 	h6 {
-		color: var(--color-text-800);
+		color: var(--color-text-900);
 		font-weight: 600;
+		line-height: 1;
 		text-wrap: balance;
 	}
 
 	h1 {
-		color: var(--color-text-900);
 		font-size: var(--font-size-7);
 	}
 

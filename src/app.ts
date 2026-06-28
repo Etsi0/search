@@ -56,7 +56,7 @@ function renderPage(): void {
 				</button>
 			</div>
 			<hr />
-			<aside class="fixed bg-body-50/90 backdrop-blur-xl h-[calc(100vh_-_3.5rem)] right-0 p-4 border-l border-body-100 z-9999 transition-transform duration-225" inert>
+			<aside class="fixed bg-body-50/90 backdrop-blur-xl h-[calc(100vh-3.5rem)] right-0 p-4 border-l border-body-100 z-9999 transition-transform duration-225" inert>
 				<form>
 					<label class="flex items-center gap-4">
 						Default Bang
@@ -66,7 +66,7 @@ function renderPage(): void {
 			</aside>
 		</header>
 		<main class="grow grid place-content-center place-items-center gap-4 text-center">
-			<h1 class="text-[clamp(0rem,_0rem_+_12vw,_3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
+			<h1 class="text-[clamp(0rem,0rem+12vw,3rem)]">Phadonia&nbsp;<span class="text-primary-500">Search</span></h1>
 			<form method="GET" action="?">
 				<input class="bg-white w-full px-4 py-2 border border-body-100 rounded-full outline-transparent transition-[border] hover:border-primary-500/50 focus-visible:border-primary-500 dark:bg-body-100 dark:border-body-200" type="search" name="q" placeholder="Search the web..." aria-label="Search" size="65" autofocus>
 			</form>
